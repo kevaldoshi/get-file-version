@@ -1,0 +1,1 @@
+select Emp_name from Employee where dept_id = 10
