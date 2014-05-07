@@ -4,6 +4,9 @@ import csv
 import re
 import os
 
+
+#Function to find the version using GetFileVersionInfo of win32api
+
 def get_version_number (filename):
     try:
     	info = GetFileVersionInfo (filename, "\\")
@@ -13,6 +16,7 @@ def get_version_number (filename):
     except:
     	return 0,0,0,0
 		
+#A query method to execute a given query or I/O files
 		
 def sql_query(query='', input_file='', output_file=''):
 	if(query == ''):
@@ -38,10 +42,15 @@ def sql_query(query='', input_file='', output_file=''):
 		)
 		command_output = command_process.communicate()[0]
 		
+		
+#Helper function to read from a CSV file
+		
 def read_from_csv_file(path):
 	data_initial = open( path, "rU")
 	data = csv.reader((line.replace('\0','') for line in data_initial), delimiter=";")
 	return data
+	
+#Main logic method containing the logical calls to other helpers in sequence	
 	
 def process_and_find_version(final_path, filename, csv_input = ''):
 	if(csv_input == ''):

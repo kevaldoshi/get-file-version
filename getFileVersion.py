@@ -1,6 +1,9 @@
 import defaultVersion
 
-path_to_output_file = 'output\\'
+path_to_output_file = 'output\\' #Path to Output Folder
+
+#Function to get the file version. Accepts a list of filenames as input
+#Default arguments functionality allows different invocations depending on the requirement
 
 def get_version(location, filenames, input_sql_file='', output_csv_file=''):
 	if(input_sql_file == '' and output_csv_file == ''):
